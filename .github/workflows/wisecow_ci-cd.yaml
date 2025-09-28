@@ -31,6 +31,8 @@ jobs:
           push: true
           platforms: linux/amd64,linux/arm64
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/wisecow:${{ github.sha }}, ${{ secrets.DOCKERHUB_USERNAME }}/wisecow:latest
+          cache-from: type=gha 
+          cache-to: type=gha,mode=max
 
   # [Challenge Goal] Continuous Deployment
   deploy:
