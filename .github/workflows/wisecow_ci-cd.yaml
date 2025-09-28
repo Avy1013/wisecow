@@ -41,12 +41,14 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Set up Kubeconfig
-        # This action configures kubectl to connect to your cluster
-        uses: azure/k8s-set-context@v3
-        with:
-          method: kubeconfig
-          kubeconfig: ${{ secrets.KUBE_CONFIG }} # Add this secret to your repo!
+
+    # for cloud setups....
+    #   - name: Set up Kubeconfig
+    #     # This action configures kubectl to connect to your cluster
+    #     uses: azure/k8s-set-context@v3
+    #     with:
+    #       method: kubeconfig
+    #       kubeconfig: ${{ secrets.KUBE_CONFIG }} # Add this secret to your repo!
 
       - name: Deploy to Kubernetes
         run: |

@@ -17,6 +17,7 @@ spec:
       containers:
       - name: wisecow
         image: docker.io/avy1013/wisecow:latest
+        imagepullPolicy: Always
         ports:
         - containerPort: 4499
         securityContext:
