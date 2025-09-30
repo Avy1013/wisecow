@@ -1,34 +1,32 @@
-apiVersion: kubearmor.io/v1
+apiVersion: security.kubearmor.com/v1
 kind: KubeArmorPolicy
 metadata:
-  name: ksp-wisecow-zero-trust
-  namespace: default 
+  name: wisecow-security-policy
+  namespace: default
 spec:
   selector:
     matchLabels:
       app: wisecow
 
   process:
-    # The action is to allow these paths. All others will be blocked by default.
+    # Block specific dangerous commands
     matchPaths:
-    - path: /bin/bash
-    - path: /bin/cat
-    - path: /bin/rm
-    - path: /bin/sleep
-    - path: /usr/bin/mkfifo
-    - path: /usr/bin/nc
-    - path: /usr/bin/command
-    - path: /usr/games/cowsay
-    - path: /usr/games/fortune
-    - path: /app/wisecow.sh
+      - path: /bin/ls
+        action: Block
+      - path: /usr/bin/ls  
+        action: Block
+      - path: /bin/pwd
+        action: Block
+      - path: /usr/bin/pwd
+        action: Block
+      - path: /usr/bin/wget
+        action: Block
+      - path: /usr/bin/curl
+        action: Block
+      - path: /usr/bin/whoami
+        action: Block
+      - path: /usr/bin/id
+        action: Block
 
-  # Allow only the necessary file access
-  file:
-    matchPaths:
-    - path: /app/response
-    - path: /usr/share/cowsay/cows/ 
-      readOnly: true
-    - path: /usr/share/games/fortunes/ 
-      readOnly: true
-
-  action: Block
+  # Default action: Allow everything else
+  action: Allow
