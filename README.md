@@ -3,7 +3,7 @@
 ## Overview
 
 This repository demonstrates the **containerization**, **secure deployment**, and **zero-trust runtime protection** of the [Wisecow application](https://github.com/nyrahul/wisecow) on Kubernetes.  
-It covers Dockerization, Kubernetes manifests, automated CI/CD with GitHub Actions, TLS setup, and a KubeArmor zero-trust policy.
+It covers Dockerization, Kubernetes manifests, automated CI/CD with GitHub Actions, TLS setup, and a KubeArmor zero-trust policy plus **bash scripts**.
 
 ---
 
@@ -127,3 +127,27 @@ See [`.github/workflows/wisecow_ci-cd.yaml`](.github/workflows/wisecow_ci-cd.yam
 ![Wisecow Logs Screenshot](images/logs.png)
 
 ---
+
+## Artifacts
+
+- **Source code:** [`wisecow.sh`](wisecow.sh)
+- **Dockerfile:** [`dockerfile`](dockerfile)
+- **Kubernetes manifests:** [`k8s/`](k8s/)
+- **CI/CD workflow:** [`.github/workflows/wisecow_ci-cd.yaml`](.github/workflows/wisecow_ci-cd.yaml)
+- **KubeArmor policy:** [`k8s/armor.yaml`](k8s/armor.yaml)
+- **Screenshots:** [`images/`](images/)
+
+---
+
+## References
+
+- [Wisecow App (Original Repo)](https://github.com/nyrahul/wisecow)
+- [KubeArmor Documentation](https://docs.kubearmor.io/kubearmor/)
+- [Kubernetes Documentation](https://kubernetes.io/)
+- [GitHub Actions Documentation](https://docs.github.com/en/actions)
+
+---
+
+## End Goal
+
+A public GitHub repository that demonstrates secure, automated, and zero-trust deployment of the Wisecow application on Kubernetes, with CI/CD and TLS.
